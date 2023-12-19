@@ -15,6 +15,7 @@ typedef unsigned long long int ull;
 ull GCD(ull a, ull b);
 ull LCM(std::vector<ull> arr);
 int HexToDec(std::string hex);
+std::vector<std::string> SplitString(std::string str, std::string delimiter);
 
 #define DECLARE_FUNCTIONS_FOR_DAY(day) ull Day_ ## day ## _Part_1(); ull Day_ ## day ## _Part_2();
 #define DEFINE_FUNCTION_FOR_DAY(day, part) ull Day_ ## day ## _Part_ ## part()
@@ -40,3 +41,4 @@ DECLARE_FUNCTIONS_FOR_DAY(15);
 DECLARE_FUNCTIONS_FOR_DAY(16);
 DECLARE_FUNCTIONS_FOR_DAY(17);
 DECLARE_FUNCTIONS_FOR_DAY(18);
+DECLARE_FUNCTIONS_FOR_DAY(19);
