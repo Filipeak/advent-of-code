@@ -4,9 +4,12 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <array>
+#include <algorithm>
 #include <map>
 #include <unordered_map>
 #include <queue>
+#include <memory>
 #include <chrono>
 
 typedef long long int ll;
@@ -14,6 +17,8 @@ typedef unsigned long long int ull;
 
 ull GCD(ull a, ull b);
 ull LCM(std::vector<ull> arr);
+ull Min(ull a, ull b);
+ull Max(ull a, ull b);
 int HexToDec(std::string hex);
 std::vector<std::string> SplitString(std::string str, std::string delimiter);
 
@@ -42,3 +47,8 @@ DECLARE_FUNCTIONS_FOR_DAY(16);
 DECLARE_FUNCTIONS_FOR_DAY(17);
 DECLARE_FUNCTIONS_FOR_DAY(18);
 DECLARE_FUNCTIONS_FOR_DAY(19);
+DECLARE_FUNCTIONS_FOR_DAY(20);
+DECLARE_FUNCTIONS_FOR_DAY(21);
+DECLARE_FUNCTIONS_FOR_DAY(22);
+DECLARE_FUNCTIONS_FOR_DAY(23);
+DECLARE_FUNCTIONS_FOR_DAY(24);

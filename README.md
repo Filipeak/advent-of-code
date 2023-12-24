@@ -2,4 +2,4 @@
 
 My attempt to Advent Of Code 2023 in Visual Studio C++
 
-Solutions can be found in ```src``` folder
+Solutions can be found in ```src``` folder of the corresponding year

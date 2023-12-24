@@ -154,6 +154,11 @@
     <ClCompile Include="src\Day18\Day18.cpp" />
     <ClCompile Include="src\Day19\Day19.cpp" />
     <ClCompile Include="src\Day1\Day1.cpp" />
+    <ClCompile Include="src\Day20\Day20.cpp" />
+    <ClCompile Include="src\Day21\Day21.cpp" />
+    <ClCompile Include="src\Day22\Day22.cpp" />
+    <ClCompile Include="src\Day23\Day23.cpp" />
+    <ClCompile Include="src\Day24\Day24.cpp" />
     <ClCompile Include="src\Day2\Day2.cpp" />
     <ClCompile Include="src\Day3\Day3.cpp" />
     <ClCompile Include="src\Day4\Day4.cpp" />
@@ -187,6 +192,14 @@
     <Text Include="res\Day8.txt" />
     <Text Include="res\Day9.txt" />
     <Text Include="src\Day19\in.txt" />
+    <Text Include="src\Day20\in.txt" />
+    <Text Include="src\Day21\in.txt" />
+    <Text Include="src\Day22\in.txt" />
+    <Text Include="src\Day23\in.txt" />
+    <Text Include="src\Day24\in.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Day24\solve.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

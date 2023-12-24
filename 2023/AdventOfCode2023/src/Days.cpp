@@ -35,6 +35,16 @@ ull LCM(std::vector<ull> arr)
 	return ans;
 }
 
+ull Min(ull a, ull b)
+{
+	return a > b ? b : a;
+}
+
+ull Max(ull a, ull b)
+{
+	return a > b ? a : b;
+}
+
 std::vector<std::string> SplitString(std::string str, std::string delimiter)
 {
 	size_t pos_start = 0, pos_end = 0, delim_len = delimiter.length();
