@@ -63,3 +63,30 @@ std::vector<std::string> SplitString(std::string str, std::string delimiter)
 
 	return res;
 }
+
+#ifdef _WIN32
+#define OPEN_PROCESS _popen
+#define CLOSE_PROCESS _pclose
+#else
+#define OPEN_PROCESS popen
+#define CLOSE_PROCESS pclose
+#endif
+
+std::string ExecuteCommand(std::string cmd)
+{
+	std::array<char, 128> buffer;
+	std::string result;
+	std::unique_ptr<FILE, decltype(&CLOSE_PROCESS)> pipe(OPEN_PROCESS(cmd.c_str(), "r"), CLOSE_PROCESS);
+
+	if (!pipe)
+	{
+		return "";
+	}
+
+	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)
+	{
+		result += buffer.data();
+	}
+
+	return result;
+}

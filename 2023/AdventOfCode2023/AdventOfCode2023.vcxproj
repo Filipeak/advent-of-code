@@ -159,6 +159,7 @@
     <ClCompile Include="src\Day22\Day22.cpp" />
     <ClCompile Include="src\Day23\Day23.cpp" />
     <ClCompile Include="src\Day24\Day24.cpp" />
+    <ClCompile Include="src\Day25\Day25.cpp" />
     <ClCompile Include="src\Day2\Day2.cpp" />
     <ClCompile Include="src\Day3\Day3.cpp" />
     <ClCompile Include="src\Day4\Day4.cpp" />
@@ -197,6 +198,7 @@
     <Text Include="src\Day22\in.txt" />
     <Text Include="src\Day23\in.txt" />
     <Text Include="src\Day24\in.txt" />
+    <Text Include="src\Day25\in.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Day24\solve.py" />

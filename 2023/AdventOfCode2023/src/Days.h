@@ -11,6 +11,7 @@
 #include <queue>
 #include <memory>
 #include <chrono>
+#include <random>
 
 typedef long long int ll;
 typedef unsigned long long int ull;
@@ -21,6 +22,7 @@ ull Min(ull a, ull b);
 ull Max(ull a, ull b);
 int HexToDec(std::string hex);
 std::vector<std::string> SplitString(std::string str, std::string delimiter);
+std::string ExecuteCommand(std::string cmd);
 
 #define DECLARE_FUNCTIONS_FOR_DAY(day) ull Day_ ## day ## _Part_1(); ull Day_ ## day ## _Part_2();
 #define DEFINE_FUNCTION_FOR_DAY(day, part) ull Day_ ## day ## _Part_ ## part()
@@ -52,3 +54,4 @@ DECLARE_FUNCTIONS_FOR_DAY(21);
 DECLARE_FUNCTIONS_FOR_DAY(22);
 DECLARE_FUNCTIONS_FOR_DAY(23);
 DECLARE_FUNCTIONS_FOR_DAY(24);
+DECLARE_FUNCTIONS_FOR_DAY(25);

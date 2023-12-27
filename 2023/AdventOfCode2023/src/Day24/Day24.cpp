@@ -77,21 +77,5 @@ DEFINE_FUNCTION_FOR_DAY(24, 1)
 
 DEFINE_FUNCTION_FOR_DAY(24, 2)
 {
-	std::array<char, 128> buffer;
-	std::string result;
-	std::unique_ptr<FILE, decltype(&_pclose)> pipe(_popen("pushd . && cd src/Day24 && python solve.py && popd", "r"), _pclose);
-
-	if (!pipe)
-	{
-		return 0;
-	}
-
-	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)
-	{
-		result += buffer.data();
-	}
-
-	ull total = std::stoull(result);
-
-	return total;
+	return std::stoull(ExecuteCommand("pushd . && cd src/Day24 && python solve.py && popd"));
 }
