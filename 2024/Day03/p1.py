@@ -31,7 +31,7 @@ for x in muls:
             switched = True
         elif x[i] == ")":
             end = True
-            
+
             break
         else:
             break

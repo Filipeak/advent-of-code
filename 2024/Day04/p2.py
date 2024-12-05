@@ -11,7 +11,7 @@ def check_X(row, col):
             (data[row - 1][col + 1] == "M" and data[row + 1][col - 1] == "S")
             or (data[row - 1][col + 1] == "S" and data[row + 1][col - 1] == "M")
         )
-    
+
     return False
 
 

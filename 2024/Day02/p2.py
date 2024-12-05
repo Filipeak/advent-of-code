@@ -38,7 +38,7 @@ for x in data:
                 valid = True
 
                 break
-        
+
         ignoreIndex = j
 
         if valid:
