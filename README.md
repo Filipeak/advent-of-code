@@ -1,5 +1,5 @@
 # Advent Of Code
 
-My attempt to Advent Of Code in Visual Studio C++
+My attempt to Advent Of Code
 
-Solutions can be found in ```src``` folder of the corresponding year
+Solutions can be found in the folder of the corresponding year
