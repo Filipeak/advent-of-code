@@ -1,23 +1,23 @@
+from heapq import heapify, heappush, heappop
+
 with open("in.txt") as file:
     data = [list(map(lambda x: int(x), line.split(","))) for line in file.readlines()]
 
 
 min_distances = []
+heapify(min_distances)
 
 for i in range(len(data)):
-    for j in range(len(data)):
-        if i != j:
-            dist = ((data[i][0] - data[j][0]) ** 2 + (data[i][1] - data[j][1]) ** 2 + (data[i][2] - data[j][2]) ** 2) ** 0.5
-            min_distances.append((data[i], data[j], dist))
+    for j in range(i + 1, len(data)):
+        dist = ((data[i][0] - data[j][0]) ** 2 + (data[i][1] - data[j][1]) ** 2 + (data[i][2] - data[j][2]) ** 2) ** 0.5
+        heappush(min_distances, (dist, i, j))
 
-
-min_distances.sort(key=lambda x: x[2])
 
 circuits = []
 
 
-for i in range(2 * 1000):
-    [p1, p2, dist] = min_distances[i]
+for i in range(1000):
+    [dist, p1, p2] = heappop(min_distances)
     c1 = None
     c2 = None
 
