@@ -1,3 +1,5 @@
+from ortools.sat.python import cp_model
+
 with open("in.txt") as file:
     lines = file.readlines()
     data = []
@@ -15,44 +17,25 @@ with open("in.txt") as file:
         data.append((code, buttons, joltage))
 
 
-cache = {}
-
-
-def solve(state, btns):
-    if any([s < 0 for s in state]):
-        return None
-
-    if all([s == 0 for s in state]):
-        return 0
-
-    if tuple(state) in cache:
-        return cache[tuple(state)]
-
-    min_len = 99999
-
-    for b in btns:
-        tmp_state = state.copy()
-
-        for id in b:
-            tmp_state[id] -= 1
-
-        res = solve(tmp_state, btns)
-
-        if res is not None:
-            min_len = min(min_len, 1 + res)
-
-    cache[tuple(state)] = min_len
-
-    return min_len
-
-
 result = 0
 
 for d in data:
+    y = d[2]
     btns = d[1]
-    joltage = d[2]
+    v = [[1 if i in b else 0 for i, x in enumerate(y)] for b in btns]
 
-    cache = {}
-    result += solve(joltage, btns)
+    model = cp_model.CpModel()
+    xs = [model.NewIntVar(0, 1000, f'x{i}') for i in range(len(v))]
+
+    for dim in range(len(y)):
+        model.add(sum([xs[i] * v[i][dim] for i in range(len(v))]) == y[dim])
+
+    model.minimize(sum(xs))
+
+    solver = cp_model.CpSolver()
+    res = solver.Solve(model)
+
+    if res in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+        result += sum([int(solver.Value(x)) for x in xs])
 
 print(result)
