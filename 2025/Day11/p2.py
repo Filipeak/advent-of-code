@@ -1,4 +1,4 @@
-with open("in_sample2.txt") as file:
+with open("in.txt") as file:
     data = file.readlines()
     graph = {}
 
@@ -11,12 +11,15 @@ with open("in_sample2.txt") as file:
 
 cache = {}
 
+
 def trace_path(current, dac, fft):
     if current == "out":
-        return (1, dac, fft)
+        return 1 if dac and fft else 0
 
-    if current in cache:
-        return cache[current]
+    key = (current, dac, fft)
+
+    if key in cache:
+        return cache[key]
 
     if current == "dac":
         dac = True
@@ -27,18 +30,12 @@ def trace_path(current, dac, fft):
     n = 0
 
     for o in graph[current]:
-        (res, n_dac, n_fft) = trace_path(o, dac, fft)
+        n += trace_path(o, dac, fft)
 
-        if n_dac and n_fft:
-            n += res
+    cache[key] = n
 
-    if n > 0:
-        dac = True
-        fft = True
+    return n
 
-    cache[current] = (n, dac, fft)
 
-    return (n, dac, fft)
-
-result = trace_path("svr", False, False)[0]
+result = trace_path("svr", False, False)
 print(result)
